@@ -97,12 +97,18 @@ Let's look at the information about cookies on the Old School Runescape landing 
 <summary><strong>Use the Details tab of the cookie banner to answer the following</strong></summary>
 <br>
 
-* How many necessary cookies are there? 
-* What happens if you try to disable necessary cookies? 
-* List at least 6 different expiry times from the necessary cookies 
+* How many necessary cookies are there?
+    * **Answer**: There are `5` necessary cookies: `_cf_bm`, `_cfuvid`, `cf_clearance` (which are all from Cloudflare), `OptanonConsent` (which stores your cookie consent preferences), and `settings` (site settings.)
+* What happens if you try to disable necessary cookies?
+    * **Answer**: you `cannot`, because the website has them always active.
+* List at least 6 different expiry times from the necessary cookies
+    * **Answer**: `2026-03-17T14:02:42.288Z`, `2027-03-17T13:32:43.247Z`, `2026-09-13T13:32:43.000Z`, `2027-04-21T13:32:42.288Z`, `2027-04-21T13:32:42.288Z`, `2026-04-14T13:32:42.000Z`.
 * List 3 different cookie types from necessary cookies 
-* In Statistics, what are the expiry time and cookie type of **JXWEBUID** 
-* In Statistics and Marketing, what other Apps or Companies are listed, other than Jagex 
+    * **Answer**: `Functional Cookies`, `Performance Cookies`, `Marketing Cookies`.
+* In Statistics, what are the expiry time and cookie type of **JXWEBUID**
+    * **Answer**: `JXWEBUID` has expiry time of `2027-04-21` and is an `HttpOnly` type of cookie. 
+* In Statistics and Marketing, what other Apps or Companies are listed, other than Jagex
+    * **Answer**: The other company that is listed is `Amazon`, having the cookie `amzn_consent`.
 
 </details>
 
