@@ -144,10 +144,13 @@ Run the test made by EFF. After running the test you will see a score for ‘Bit
 <br>
 
 * Return two categories and results where you had the *highest* and *lowest* amount of identifying bits of information.
+    * **Answer**: The category with the *highest* amount of identifying bits is `WebGL Vendor & Renderer`, at `8.54`, while the one with the *lowest* amount is `CPU Class`, at only `0.09`.
 
 * Why does identifiability matter? 
+    * **Answer**: It allows websites and third partires to track your behavior across the Internet without your knowledge/consent, without the need for cookies.
 
 * What pros and cons can you think of to being unique vs common?
+    * **Answer**: `Unique` makes it easier to track user data, harder to blend in due to higher identifiability, but that also makes your specific setup easy to identify, while `Common` makes it harder to track specific individuals, but in turn triggers more CAPTCHAs.
 
 </details>
 
@@ -167,6 +170,8 @@ What are your Screen width and Screen height similarity percentage? You may or m
 * Canvas + WebGL Data
 * Screen width, Screen height
 * Screen available width, Screen available height, Can you explain your result?
+
+**Note: The website is not working.**
 
 </details>
 
