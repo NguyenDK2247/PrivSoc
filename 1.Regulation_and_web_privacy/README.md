@@ -57,6 +57,8 @@ After receiving the answer to your data request answer the following questions. 
 5. Do you think that the company collected the least amount of data required to provide the service you needed? 
 6. Were you surprised about something, what? 
 
+> **Note**: I have yet to receive the request from Google, the company I requested GDPR data from.
+
 </details>
 
 > Please, update your aswer to these questions by 30.04.2026 to complete this assigment.
