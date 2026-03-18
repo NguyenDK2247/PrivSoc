@@ -168,10 +168,11 @@ What are your Screen width and Screen height similarity percentage? You may or m
 <br>
 
 * Canvas + WebGL Data
+    * **Answer**: `Canvas` and `WebGL Data` both have similarity percentage of `0.00%`. `Explanation`: `Canvas` and `WebGL Data` are essentially made to be unique,; no other user shares your fingerprint of these two categories.
 * Screen width, Screen height
+    * **Answer**: `Screen width` has `5.10%` similarity and `Screen height` has `5.51%` similarity. `Explanation`: my resolution of `2560x1440` is not quite unique, but still fairly uncommon.
 * Screen available width, Screen available height, Can you explain your result?
-
-**Note: The website is not working.**
+    * **Answer**: `Screen available width` has `4.95%` similarity and `Screen available height` has `1.81%` similarity. `Explanation`: everyone has their own configuration of size and position of their setup, these two values are usually different from the `Screen width` and `Screen height` values and are therefore harder to be similar across fingerprints.
 
 </details>
 
@@ -205,17 +206,25 @@ Captured traffic presents the following workflow:
 **Your work is to identify the following information about the user:**
 
   * Browser
+    * **Answer**: `Safari 16.3`, found from the first request, in the `User-Agent` field.
   * Operating system
+    * **Answer**: `macOS 10.15.7`, from the same request.
   * Screen size
+    * **Answer**: `1800x1169`, from a `POST` request in the `Post Data` section, where the `resolution` is.
   * Local language
+    * **Answer**: `en`, from the same tab, but at `language`.
   * Browser language
+    * **Answer**: `en-GB,en;q=0.9`, from a `GET` request, at `Accept-Language`.
   * Region
+    * **Answer**: `FI`, from a `POIST` request, `region`.
   * Timezone
+    * **Answer**: `2`, from a `Post` request, `timezone`.
   * Search keyword
+    * **Answer**: `pellesecurity`, from an `api/search` request, after `keyword=`.
 
 You can reproduce the previous by capturing the HAR file yourself, and looking into the details if you want.
 
- > **Find the previos information. Also, describe shortly where this information is located and how and when it is carried to TikTok's servers.**
+ > **Find the previous information. Also, describe shortly where this information is located and how and when it is carried to TikTok's servers.**
 
 ### Task 4 B) TikTok data obfuscation
 
