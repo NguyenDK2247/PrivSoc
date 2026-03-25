@@ -44,11 +44,55 @@ Create a gpg keypair, create a message of your choice into a file named 'message
 > [!CAUTION]
 > NEVER upload your actual private keys in the internet and never share them with anyone else. This key is only used to confirm your keys.
 
+**Answer**:
+* Public key:
+```
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEacQi1xYJKwYBBAHaRw8BAQdADn7R/6abU31U/7vnHWZEzqET1lXGiyFGRLA1
+tJSARey0K05ndXllbiBEb25nIEtob2kgPGtoZG9uZzIzQHN0dWRlbnQub3VsdS5m
+aT6ItQQTFgoAXRYhBHuZ+U5God5ozx48arA6zk58ULnWBQJpxCLXGxSAAAAAAAQA
+Dm1hbnUyLDIuNSsxLjEyLDIsMQIbAwUJBaR7SQULCQgHAgIiAgYVCgkICwIEFgID
+AQIeBwIXgAAKCRCwOs5OfFC51veYAP9lNusEa9TXYQBPxqdxc3J6o4USf1td9hhZ
+YV5q4t9K+wEAyDeSgiOzgq+gi5pBQMLjT1KfolgjGIvSO6vacvsd1w24OARpxCLX
+EgorBgEEAZdVAQUBAQdA7ueMKpsQfAnoVbkjDDUmv4KRE58eTRIOyvsS5+k+FG0D
+AQgHiJoEGBYKAEIWIQR7mflORqHeaM8ePGqwOs5OfFC51gUCacQi1xsUgAAAAAAE
+AA5tYW51MiwyLjUrMS4xMiwyLDECGwwFCQWke0kACgkQsDrOTnxQudZUngD9GaZX
+WsAEGNZsd1B+S1is3231Mjwykn2pHvr3bKKYEwkBAP2LzwyZcGq6cTM1nueJwbP3
+Ljb2BXCu7hY2PIlJPawM
+=N4gc
+-----END PGP PUBLIC KEY BLOCK-----
+```
+* Private key:
+```
+-----BEGIN PGP PRIVATE KEY BLOCK-----
+
+lIYEacQi1xYJKwYBBAHaRw8BAQdADn7R/6abU31U/7vnHWZEzqET1lXGiyFGRLA1
+tJSARez+BwMC/hebW/rGLsX/HsMXZ1FLsCRVxwvuy8W+o+nYU6rILBJhGkXvhGUM
+w8Fcsk/2UniROWyp39II8W19d2RK9IijIQziUVwsSu9i+2u733IU77QrTmd1eWVu
+IERvbmcgS2hvaSA8a2hkb25nMjNAc3R1ZGVudC5vdWx1LmZpPoi1BBMWCgBdFiEE
+e5n5Tkah3mjPHjxqsDrOTnxQudYFAmnEItcbFIAAAAAABAAObWFudTIsMi41KzEu
+MTIsMiwxAhsDBQkFpHtJBQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJELA6
+zk58ULnW95gA/2U26wRr1NdhAE/Gp3FzcnqjhRJ/W132GFlhXmri30r7AQDIN5KC
+I7OCr6CLmkFAwuNPUp+iWCMYi9I7q9py+x3XDZyLBGnEItcSCisGAQQBl1UBBQEB
+B0Du54wqmxB8CehVuSMMNSa/gpETnx5NEg7K+xLn6T4UbQMBCAf+BwMCMjzIjYEX
+2Dz/lcQcbpIe4zxu1lZL8CTP7jfAnPcmgOONbN7J01hYfIa/LrKJiuoT0oKqLBdn
+0oz49P2GNeG8vxqjcQLpEXF9vqw77qsqwoiaBBgWCgBCFiEEe5n5Tkah3mjPHjxq
+sDrOTnxQudYFAmnEItcbFIAAAAAABAAObWFudTIsMi41KzEuMTIsMiwxAhsMBQkF
+pHtJAAoJELA6zk58ULnWVJ4A/RmmV1rABBjWbHdQfktYrN9t9TI8MpJ9qR7692yi
+mBMJAQD9i88MmXBqunEzNZ7nicGz9y429gVwru4WNjyJST2sDA==
+=HElT
+-----END PGP PRIVATE KEY BLOCK-----
+```
+
+
 Proceed to 1B.
 
 ### **Task 1B)** Encrypting the message 2/4p
 
 Encrypt the message from 1A using the provided public key in the "files" folder. Send the encrypted message to [taskmailaddress@proton.me](mailto:taskmailaddress@proton.me), the **subject should be your full name** - this matters for grading the task. It does not matter what address you send the email from. **Mark this task done**.
+
+**Answer**: done
 
 Proceed to 1C.
 
@@ -56,13 +100,18 @@ Proceed to 1C.
 
 Download the message in the "files" folder and verify the signature on it with the public key in the same folder. **Answer this part with the name of the owner** of said keys.
 
+**Answer**: Pelle Security (`taskmailaddress@proton.me`)
+
 Proceed to 1D.
 
 ### **Task 1D)** Questions 4/4p
 
 * What can be found out about the email you sent, by one who intercepted it in transit?
-* Does verifying the the message **guarantee** the senders identity?
+    * **Answer**: Message itself is encrypted, but the interceptor is still able to see the sender's email address (my email), recipient's email address (`taskmailaddress@proton.me`), the subject (my full name), and timestamp.
+* Does verifying the message **guarantee** the senders identity?
+    * **Answer**: Not entirely. We know that whoever has that private key for the message was the one to sign it, but the problem now is that "whoever" can be anyone and there is no guarantee that the key truly belongs to that person who claims to be "owning" the key.
 * Is the process of sending an email this way end-to-end-encrypted(E2EE)?
+    * **Answer**: Yes. The message was encrypted on my device using the recipient's public key (`public.key`) and can only be decrypted by their private key which only `taskmailaddress@proton.me` has. 
 
 <details><summary>Help</summary>
 <br>
