@@ -44,7 +44,7 @@ Create a gpg keypair, create a message of your choice into a file named 'message
 > [!CAUTION]
 > NEVER upload your actual private keys in the internet and never share them with anyone else. This key is only used to confirm your keys.
 
-**Answer**:
+**Answer:**
 * Public key:
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -92,7 +92,7 @@ Proceed to 1B.
 
 Encrypt the message from 1A using the provided public key in the "files" folder. Send the encrypted message to [taskmailaddress@proton.me](mailto:taskmailaddress@proton.me), the **subject should be your full name** - this matters for grading the task. It does not matter what address you send the email from. **Mark this task done**.
 
-**Answer**: done
+**Answer:** done
 
 Proceed to 1C.
 
@@ -100,18 +100,18 @@ Proceed to 1C.
 
 Download the message in the "files" folder and verify the signature on it with the public key in the same folder. **Answer this part with the name of the owner** of said keys.
 
-**Answer**: Pelle Security (`taskmailaddress@proton.me`)
+**Answer:** Pelle Security (`taskmailaddress@proton.me`)
 
 Proceed to 1D.
 
 ### **Task 1D)** Questions 4/4p
 
 * What can be found out about the email you sent, by one who intercepted it in transit?
-    * **Answer**: Message itself is encrypted, but the interceptor is still able to see the sender's email address (my email), recipient's email address (`taskmailaddress@proton.me`), the subject (my full name), and timestamp.
+    * **Answer:** Message itself is encrypted, but the interceptor is still able to see the sender's email address (my email), recipient's email address (`taskmailaddress@proton.me`), the subject (my full name), and timestamp.
 * Does verifying the message **guarantee** the senders identity?
-    * **Answer**: Not entirely. We know that whoever has that private key for the message was the one to sign it, but the problem now is that "whoever" can be anyone and there is no guarantee that the key truly belongs to that person who claims to be "owning" the key.
+    * **Answer:** Not entirely. We know that whoever has that private key for the message was the one to sign it, but the problem now is that "whoever" can be anyone and there is no guarantee that the key truly belongs to that person who claims to be "owning" the key.
 * Is the process of sending an email this way end-to-end-encrypted(E2EE)?
-    * **Answer**: Yes. The message was encrypted on my device using the recipient's public key (`public.key`) and can only be decrypted by their private key which only `taskmailaddress@proton.me` has. 
+    * **Answer:** Yes. The message was encrypted on my device using the recipient's public key (`public.key`) and can only be decrypted by their private key which only `taskmailaddress@proton.me` has. 
 
 <details><summary>Help</summary>
 <br>
@@ -175,7 +175,20 @@ Also, consider the following example scenario to highlight the metadata:
 Without knowing the message content, can you deduce information from User A and User B?
 
 
-**Write an essay of atleast 300 words based on the previous sources and examples, including app comparison and considering also the importance of E2E encrypted metadata.**
+**Write an essay of at least 300 words based on the previous sources and examples, including app comparison and considering also the importance of E2E encrypted metadata.**
+
+**Answer:** The most popular messaging platforms have stark differences in how much data they collect, how they encrypt messages/phone calls, and their definitions of defaults. Here, we will take a look at specifically WhatsApp and Telegram.
+
+WhatsApp uses the open-source Signal Protocol for its end-to-end encryption protocols across all the communications and media, meaning that Whatsapp itself cannot read the contents of the messages. However, WhatsApp's parent company is Meta, and that raises serious concerns about security. Meta is well known to have been collecting extensive metadata including phone numbers, location, contacts, browsing history, purchase history, device identifiers and advertising data. In other words, despite Whatsapp having encryption that can help conceal message content, Meta will collect the data anyway; if you use Whatsapp, you should not expect any privacy. This concern is further deepened by the fact that WhatsApp's default recommendation is to back up chat logs to some cloud services, meaning that some, if not, most of these messages are not encrypted at all, making them vulnerable to hackers at best, and the prime targets for mass surveillance and data gathering from law enforcement at worst.
+
+On the other hand, Telegram is able to access regular messages since it only enables end-to-end encryption in so-called "Secret Chats". This design choice prioritizes cloud convenience over security. Telegram also collects data, but on a much less extensive scale than Meta does. While it is a better alternative to Meta when it comes to encryption, Telegram itself doesn't thoroughly encrypt all metadata either. Its server-side code is not open source, making independent verification of data handling impossible. Thefore, this is one of the weaker spots in Telegram's encryption model.
+
+It is important to take into consideration the role of E2EE. Most users never change their default settings, and a lot of these message giants often brand themselves as "private and secure" platforms, but with unecrypted backups enabled or E2EE disabled by default (which is the case here for Telegram), provides users with far less protection than what is actually marketed. When we look at the bigger picture, it is clear that E2EE is hardly the problem. The problem mostly lies in the fact that the backup data and the metadata itself are loosely protected, therefore little encryption is even involved in the first place. This makes vast amounts of data vulnerable to cybercrime: hackings, ransom attacks, etc.
+
+So, based on what we know about the approaches of these messaging companies, we can tell a compelling story of user A and user B. User A seems to be at a specific Helsinki cafe every Thursday at 1 PM, on a weekly basis, and they are an iPhone 14 Pro Max. On the other hand, user B messages from a Windows laptop connected to a known Wi-Fi network, then later from an Android phone near a specific cell tower within 3 kilometers of the same cafe. This strongly suggests the theory that they met in person at some point. This situation of user A and user B shows us that with all the metadata that has been gathered between these two people, one can craft up an image of their relationship, locations, devices without ever having to look at the message content itself. Encrypting only the message content will not suffice at all.
+
+---
+
 
 Note also the use of the same phone number across different services. 
 For example, WhatsApp shares phone numbers and other information with Meta Company outside of the European Union [^6].
@@ -183,9 +196,17 @@ What does this mean in the context of social graphs and the accuracy of possible
 
 **Write one paragraph of your thoughts.**
 
+**Answer:** Phone number is one of the main mechanisms of allowing data identification across multiple services. When Whatsapp shares phone numbers with Meta outside the European Union (EU), it is Meta that now has your phone number. And since a lot other services use Meta as well, such as Facebook and Instagram, suddenly your phone number can now be used with data from these services to build a unified profile across all the platforms, all under the roof that is Meta. That alone is enough for them to picture all your details, including your follows, transactions, advertisements, etc. In summary, the use of phone number across different services allows these giant companies to, at large, connect user behavior, relationships, interests and gather more data points for their next business strategies.
+
+---
+
 Additionally, what privacy risks "last seen" or showing "online status" can include? Imagine a situation, where someone who has the same contact list as you have, automates to process of checking the online status of every contact for every second and finally stores this information for a longer period.
 
 **Write one paragraph of your thoughts.**
+
+**Answer:** "Last seen" and "online status" can often be used as time metrics for an user's behavioral patterns. That can range from sleep schedules, work hours to daily routines, and sometimes even real-time locations when cross checked with other available data. It might seem harmless from an innocent point of view, but in reality, it is another subtle way to collect metadata from users. Of course, one always has the option to disable online status/last seen times, but that only stops normal users from checking on each other, not actually prevent your data being collected still. This passive surveillance undermines privacy that users would normally expect from a platform advertising that very same aspect.
+
+---
 
 ### **Task 2 B)** Image metadata
 
@@ -198,8 +219,11 @@ Some services (especially image related) strip it off for your own safety, but t
 
 **Download [**image2**](images/image2.jpg?raw=true) and extract the following information from it**
 - GPS coordinates
+    * **Answer:** `(65.05767059305555, 25.46864318833333)`
 - Device manufacturer and the model the image has been taken with
+    * **Answer:** `Huawei` and `CLT-L29`
 - Date and time when the image has been originally taken
+    * **Answer:** With Unix epoch time of `1661267759`, that gives us the exact date and time of the image: `Tuesday, August 23, 2022 at 3:15:59 PM (GMT time)` 
 
 You can either use the EXIF tool of [CyberChef](https://gchq.github.io/CyberChef/#recipe=Extract_EXIF()) or install [Perl based tool on Arch Linux, for example](https://archlinux.org/packages/extra/any/perl-image-exiftool/).
 
@@ -207,6 +231,8 @@ Then strip the image of the above-mentioned information and return the image. Yo
 The image should not contain the above-mentioned information **in any form**.
 
 For reference, here is [**image1**](images/image1.jpg?raw=true) as an example of a picture where the EXIF data has been stripped.
+
+**Answer:** the stripped image is `image2_stripped.jpg` in the same `images` folder as the other given images. It has 0 tags.
 
 Many other file formats also include metadata, but we don't handle them in this exercise.
 
