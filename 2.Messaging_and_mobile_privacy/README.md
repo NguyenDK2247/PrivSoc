@@ -263,10 +263,47 @@ You can either use it on the browser or [in command-line.](https://github.com/Ex
 Name your application and answer the following questions for each application.
 
 1. How many trackers and permissions each application has?
+
+    **Answer:**
+    Application | # of trackers | # of permissions |
+    :---:|:---:|:---:|
+    Discord | 3 | 36
+    Spotify | 24 | 51
+    Whatsapp | 0 | 80
+
 2. How many "dangerous" (runtime) and/or "special" permissions does each have? (Red exclamation mark, see these in Google's guide [^14])
+
+    **Answer:**
+    Application | # of "dangerous"/"special" (❗) permissions 
+    :---:|:---:|
+    Discord | 6 
+    Spotify | 10
+    Whatsapp | 16
+
 3. Did the applications have permission to access such data they could use or sell for monetary gain? Which permissions and trackers are these?
+
+    **Answer:**
+    Application | Monetized trackers | Monetized permissions
+    :---:|:---:|:---:|
+    Discord | AppsFlyer, GoogleAnalytics | `READ_CONTACTS`, `ACCESS_ADSERVICES_ATTRIBUTION`, `AD_ID`, `RECORD_AUDIO`
+    Spotify | Branch, ComScore, Google Firebase Analytics | `ACCESS_FINE_LOCATION`, `BLUETOOTH_SCAN`, `GET_ACCOUNTS`, `READ_PHONE_STATE`, `ACCESS_ADSERVICES_AD_ID` + `AD_ID`, `ACCESS_ADSERVICES_ATTRIBUTION`
+    Whatsapp | ø | `ACCESS_FINE_LOCATION`, `GET_ACCOUNTS`, `READ_PHONE_STATE` + `READ_PHONE_NUMBERS`, `AD_ID`, `READ_CONTACTS`
+
 4. Describe two attack vectors enabled by these permissions for each application, had an attacker gained access into the application and/or their database.
+
+    **Answer:**
+    Application | Attack vectors | Description
+    :---:|:---:|:---:|
+    Discord | `RECORD_AUDIO` + `SYSTEM_ALERT_WINDOW` | The attacker can record audio while using a fake UI over other apps to attempt to steal credentials
+    Discord | `READ_CONTACTS` + `INTERNET` | The attacker can get your entire contact list for phishing intent
+    Spotify | `ACCESS_FINE_LOCATION` + `BLUETOOTH_SCAN` | The attacker can track your precise movements and based on Bluetooth, figure out who/where you are near
+    Spotify | `GET_ACCOUNTS` + `READ_PHONE_STATE` | The attacker can get all your accounts on your phone and also read your phone's state (such as identity) to potentially use your identity as identity theft
+    Whatsapp | `RECEIVE_SMS` + `INTERNET` | The attacker can intercept your SMS messages and the most dangerous of them all, is gaining access to your OTP/2FA codes sent to your phone, therefore bypassing 2FA on your very important accounts
+    Whatsapp | `READ_CONTACTS` + `READ_PHONE_NUMBERS` + `WRITE_CONTACTS` | Like for Spotify, the attacker can get hold of your entire contact list, as well as your phone numbers across Meta's various platforms. However, here they can also modify your already existing contacts for malicious attacks
+
 5. Compare Android and iOS privacy labels (if it is available on both platforms) to your findings about trackers
+
+    **Answer:** iOS and Android privacy labels mostly share the same trackers/permissions but the stark difference between the two operating systems is that the iOS privacy labels create quite a lot of confusion - it uses technical terms that can be difficult to fully understand. On the other hand, tools like Exodus exist exclusively for Android so that users can see the full extent of an application's trackers/permissions, where in iOS some, if not, most of said labels are not displayed at all. That makes Exodus a valuable tool for privacy research of certain applications and broader, understand how companies gather, distribute and sell data.
 
 </details>
 
