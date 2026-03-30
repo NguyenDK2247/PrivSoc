@@ -1,4 +1,4 @@
-# **Week 4: Open-source Intelligence** 
+# **Week 3: Open-source Intelligence** 
 
 What information is publicly available about you?
 The amount can surprise you.
@@ -39,11 +39,16 @@ Search for ***joe@gmail.com*** on Have I been Pwned, and...
 
 In how many <strong>data breaches</strong> and <strong>pastes</strong> can this email be found?
 
+**Answer:** The ***joe@gmail.com*** email has a total of `320` data breaches and `96` pastes.
+
 What are the <strong>compromised data types</strong> in the following services? (answer each separately)
 
 - <strong>Bell</strong>
+    - **Answer:** `email address`, `geographic locations`, `IP addresses`, `job titles`, `names`, `passwords`, `phone numbers`, `spoken languages`, `survery results`, `usernames`.
 - <strong>Drizly</strong>
+    - **Answer:** `dates of birth`, `device information`, `email addresses`, `IP addresses`, `names`, `passwords`, `phone numbers`, `physical addresses`.
 - <strong>Robinhood</strong>
+    - **Answer:** `email addresses`.
 
 </details>
 
