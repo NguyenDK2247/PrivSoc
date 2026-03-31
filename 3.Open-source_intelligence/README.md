@@ -127,6 +127,23 @@ The <strong>instructions</strong> on how to create the rest of the activation ke
 Also, return the <strong>plaintext version of the super secret password</strong> and <strong>the name of the hash function</strong> it was created with.   
 You can use for example https://crackstation.net/ to decode the password.
 
+**Answer:**
+- **Password** can be found in the `strcpy(s2, "Vulture35Vulture");` line. The password is `Vulture35Vulture`.
+- **Activation key** can be found following the logic shown in this block of code:
+``` c
+v7 = strtol(nptr, &endptr, 10);
+v6 = sum(v7);
+if ( v7 > 59347700 && v7 <= 59347970 && v6 == 44 )
+    break;
+```
+
+- According to the code, the activation key `v7` needs to follow these two **instructions**: 
+    - Be between `59347700` and `59347970`
+    - Has `44` as the sum of its digits. 
+
+- **One such key** that satisfies the conditions is `59347790`.
+- The hashed version of the super secret password is `4dc9332ca3bbc59c880fd2cbe7ec1b7ca171cc82`. Pasting this in [crackstation.net](https://crackstation.net) yields us its **plaintext version** is `Vulture99` using **type** `sha1`.
+
 </details>
 
 ---
