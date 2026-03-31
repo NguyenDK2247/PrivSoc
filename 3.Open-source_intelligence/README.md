@@ -69,6 +69,11 @@ As the information is highly valuable for some entities, these entities will pay
 
 1. **Find at least three of these paid services and list them.**
 
+    **Answer:**
+    - [Breachsense](https://www.breachsense.com)
+    - [DarkOwl](https://www.darkowl.com)
+    - [DeHashed](https://dehashed.com)
+
 *Consider the problems of breach data as follows*. 
 
 Would it be better to build platforms which make **all** breach data searchable for everyone, or identified persons? Or instead, try to remove it from the internet? Which might be impossible.
@@ -85,6 +90,12 @@ Could it change the way we think about privacy, and how we use services and prio
 Or do we make a compromise, and try to remove only the most damaging breaches from the internet?
 
 2. **Write a short answer (150-200 words) of your thoughts. There might not be a correct or incorrect answer, but you need to make arguments.**
+
+    **Answer:** There is no easy answer to the question of what to do with breach data. There are pros and cons with each choice, and all of them can bring about dire consequences to consumers/companies.
+
+    One option is to make breach data public for everyone to see. This way, people know exactly what was leaked about them, therefore raising awareness about their security weaknesses and important credentials to avoid giving, should this happen again. On a broader scale, it can also pressure companies to improve their security measures against such attacks. However, this comes with a heavy price: hackers and attackers now have information easily and can use it for identity theft to mask their attacks even further.
+
+    If publicizing breach data is not so good an option, one can debate removing such information from the Internet, for good. Data might be harder to find, because you are attempting to erase it from the Internet archives and any source related to it, but data also spreads like wildfire and once the data breach has been initiated, it keeps multiplying itself through devices, hardware, software, etc. and therefore becomes nearly impossible to stop it. It can create a false sense of security as well, since removing data from the Internet simply is not deleting them and pretending they are gone. Somewhere, some way, there will always exist a way to recover those files and you might not even know that it's already underway.
 
 ---
 
