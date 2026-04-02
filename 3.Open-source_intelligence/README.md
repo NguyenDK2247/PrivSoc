@@ -200,7 +200,15 @@ Note that not all of these are needed.
 
 ### 1. What is the alias of the new employee and where is he from? Explain where you found this information
 
+**Answer:** Pelle Security has a GitHub account, and it can be found on [`https://github.com/PelleSecurity`](https://github.com/PelleSecurity). The alias of the new employee is `SecurityPelle` and the location is `Oulu`.
+
+![alias & location](/3.Open-source_intelligence/screenshots/1.%20alias%20&%20location.png)
+
 ### 2. What is the employee's real name? Explain how you found it.
+
+**Answer:** The employee's real name can be found in the `77711c4` commit in the `PelleWeb` repository when looking at past commits. His name is `Klovni`.
+
+![real name](/3.Open-source_intelligence/screenshots/2.%20real%20name.png)
 
 ### 3. The employee may have accidentally leaked his email address. Find the password of this leaked email. Explain where you found it:
 
