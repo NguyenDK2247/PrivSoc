@@ -51,13 +51,29 @@ You can return to this assignment once you have received your information, but y
 After receiving the answer to your data request answer the following questions. Keep your answers concise, focused and **at most** 200 words.
 
 1. Which company did you choose to request your data from and how long did it take to submit that information?
+
+    **Answer:** `5th April 2026` - I chose `Google` to request my data from.
+
 2. In what format did you receive your data and how many pages/bytes of it were there?
-3. What kind of information was there that you had not directly given yourself? 
+
+    **Answer:** They have `not provided the actual data`, only a `guidance email` to some tools like `Google Takeout`.
+
+3. What kind of information was there that you had not directly given yourself?
+
+    **Answer:** `behavioral data`, `location history`, `device information`, `third-party tracking data that was never explicity provided to them`.
+
 4. Did you understand the meaning of the information?
+
+    **Answer:** Google's response is fairly `vague` and `technical`, and does not directly provide the answer to those questions or needed information. This is a well-known practice in responses across big tech companies that expect consumers to fully grasp privacy policy, Terms of Service, etc.
+
 5. Do you think that the company collected the least amount of data required to provide the service you needed? 
+
+    **Answer:** `No`, it seems like they collect more data than what is expected to be "least" or "minimum". As stated in question 3, they also provide things such as `location history`, `device information` and `third-party tracking data`.
+
 6. Were you surprised about something, what? 
 
-> **Note**: I have yet to receive the request from Google, the company I requested GDPR data from.
+    **Answer:** `Yes`, in the way that instead of directly replying to my GDPR Article 15 request, it replies with some self-service tools. In other words, every response is with technicality over something you would most likely see in customer service.
+
 
 </details>
 
