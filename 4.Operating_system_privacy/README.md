@@ -62,6 +62,28 @@ A great place to search for the CVEs is [Mitre](https://cve.mitre.org/index.html
 
 > You are expected to produce essay-like answer, approximately half A4 (200-250 words).
 
+**Answer:** **Ring's Always Home Cam** has the big risk of operating inside a home itself, which can make individuals feel less safe. On top of that, its drone-like feature allows it to fly around and potentially surveil on other houses as well, majorly breaching their privacy.
+
+**Roomba** is capable of mapping your house's floor structure, which can be used as data for law enforcement to precisely track down your property by process of elimination. Furthermore, the Roomba can be controlled by Amazon's Alexa, which again feeds your information directly to the company.
+
+**Alexa/Echo** follows a unique strategy that involves metadata. Specifically, Echo is able to collect data from the user through its smart speakers and share it to Amazon's respective advertising partners. That data is then used to "infer user interests" and "serve targeted ads on-platform". On the other hand, it is obvious that Amazon themselves also controls and has access to Echo's data, all of it. Voice recognition therefore plays a big part in this method.
+
+**Ring Doorbell** of course records footage whenever a doorbell is rung and the camera is activated. That in itself is already quite an amount of privacy breached. Again, Amazon owns everything, and face recognition helps identify the innocent people standing behind those cameras. Even worse, it might happen to anyone just simply passing by this field of view the camera offers, such as a random car driving by every day for work.
+
+Finally, **Astro** is designed to be a home robot, but the home robot itself  has multiple functions that is simply overlooked by the majority. Most specifically, in two scenarios that people are unaware of is that the robot can see and hear its surroundings and when interacting with humans, thus getting data on both those aspects again. And since Amazon controls everything, said data is now in the hands of the company.
+
+**CVE-2019-9483:** Amazon Ring Doorbell before 3.4.7 mishandles encryption, which allows attackers to obtain audio and video data, or insert spoofed video that does not correspond to the actual person at the door.
+
+**CVE-2017-13077:** Wi-Fi Protected Access (WPA and WPA2) allows reinstallation of the Pairwise Transient Key (PTK) Temporal Key (TK) during the four-way handshake, allowing an attacker within radio range to replay, decrypt, or spoof frames.
+
+**CVE-2017-13078:** Wi-Fi Protected Access (WPA and WPA2) allows reinstallation of the Group Temporal Key (GTK) during the four-way handshake, allowing an attacker within radio range to replay frames from access points to clients. Together with CVE-2017-13077 these two CVEs completely crashed the Wi-Fi security of affected devices.
+
+**CVE-2018-10987:** CVE-2018-10987 affected the Diqee 360 robot vacuum cleaner, a device similar in concept to Roomba, allowing remote attackers to execute commands via a UDP "fast radio" packet, effectively giving them control of the device's Wi-Fi connected camera with night vision and smartphone navigation.
+
+**CVE-2018-10988:** the same as CVE-2018-10987 but instead of using UDP "fast radio" packet, this method exploits the SD card slot to compromise the machine. Thsi means that an attacker disguised as a technician can permanently compromise the device.
+
+What happens with data in the US is **not** applied here in Finland, in the European Union in general. Both Finnish and EU law give stronger data protections for personal data and communications than the US doctrine and require safeguards before authorities are allowed to access that data. The protections come primarily from EU's ECHR, the **European Convention on Human Rights**.
+
 ---
 
 ### **Task 1B)** Regular operating systems
