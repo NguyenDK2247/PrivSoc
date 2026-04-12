@@ -250,7 +250,21 @@ Remember to take it **with a grain of salt** whatever it is saying, and verify f
 
 > i. Will the message be delivered into the spam more likely because of the content rather than sending entity?
 
+**Answer:** From the `Hello.eml` file alone, we can quickly see that:
+* SPF **passes** `spf=pass (google.com: domain of takolepo@amis.net designates 212.18.32.4 as permitted sender)`, meaning that the IP is authorized to send for `amis.net`.
+* DKIM also **passes** `dkim=pass (test mode) header.i=@amis.net header.s=mail`, which means the message is properly signed by `amis.net`. 
+* This would by default lead to DMARC **passing** as well.
+
+In the end, all 3 criteria pass, which means: this email is **legimiately sent** from `amis.net`, would NOT be rejected by DMARC/DKIM/SPF. Hence the only thing catching spam is via `SpamAssassin` **content analysis**, since that is what the tool is designed for.
+
 > ii. Identify at least five different psychological manipulation techniques what have been used in the message. 
+
+**Answer:** 
+1. Trying to garner sympathy `I am suffering from cancer`, an attempt to lower the recipient's awareness of the situation.
+2. Trying to sound professional and trustworthy `I am a businesswoman, banker, and corporate executive`.
+3. Creating time pressure forcing the recipient into irrational decisions `I would not be able to stay alive past the next few months`.
+4. Offering compensation likely to sell the recipient into cooperating with the sender `I will compensate you and your family for your efforts by 50% of the $2.5M`
+5. Conflicting emails: the `SpamAssassin` tool helps us track the email address of the sender as `takolepo@amis.net`, but the content of the mail ends with an address of `Msmariar6@gmail.com` and that also happens to be the reply-to email address of this email, hiding the identity of the scammer behind a most likely throwaway email account.
 
 </details>
 
