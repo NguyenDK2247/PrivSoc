@@ -170,19 +170,65 @@ First, you need to identify the mail service provider by looking `MX` records e.
 
 <strong>i.</strong> What methods have been used on the message to convince the user to make an action and how the information is likely obtained?  
 
-<strong>ii.</strong> Who owns the domain `spanki.fi` related to the previous message? How about the domains `s-panki.fi` or `spankki.fi`?  
+**Answer:** 
+* `detected unusual activity` and `temporarily suspended your access to online banking for security reasons` try to instill fear and urgency in the customer, especially with the "for security reasons" phrase. They are trying to sell the fact that the user's account is compromised for a legitimate reason.
+* `within the next 24 hours` creates a fake deadline that makes the customer panic more and make less rational decisions.
+* The entire email is trying to pose themselves as a legitimate source of fraud prevention.
+* Information is likely obtained through `data breaches`, `sending to random email addresses` since this email uses a greeting of `Dear Customer` rather than any name.
 
-<strong>iii.</strong> Is anyone capable to register free domain names, even similar to known brands? Take a brief look for registration requirements and process for `.fi` domains. Think about new registrations of S-Pankki domains.  
+<strong>ii.</strong> Who owns the domain `spanki.fi` related to the previous message? How about the domains `s-panki.fi` or `spankki.fi`?
 
-<strong>iv.</strong> Why it is so important pay attention to exact URLs and <strong>why can we trust</strong> the URLs in the first hand? Only a short explanation about the trust is required.  
+**Answer:** `spanki.fi` is not owned by anyone, but `s-panki.fi` and `spankki.fi` are, both are practically the same domain leading to the same website, owned by `Suomen Osuuskauppojen Keskuskunta`. This is done by S-Pankki themselves in order to prevent typosquatting. 
 
-<strong>v.</strong> Look for the sender from the .eml message. How the message has been sent? You should be able to identify the service.  
+<strong>iii.</strong> Is anyone capable to register free domain names, even similar to known brands? Take a brief look for registration requirements and process for `.fi` domains. Think about new registrations of S-Pankki domains.
 
-<strong>vi.</strong> What headers are telling about DMARC, DKIM and SPF checks  
+**Answer:** source - [Finnish Transport and Communications Agency, TRAFICOM](https://www.traficom.fi/en/communications/fi-domains/how-get-fi-domain-name)
+* Anyone is able to register an `.fi` domain, but it is not free of charge.
+* It works on a first-come, first-served basis. However, one should still check the domain names that are "kept in stock" to avoid infringement by another party.
+* This means that attackers could have gotten their hands on both S-Pankki registered domains of `s-pankki.fi` and `spankki.fi` themselves. S-Pankki luckily was able to get hold of them first but obviously could not control the thousands of variants of the original domain due to typosquatting.
 
-<strong>vii.</strong> Now, do you think that these checks (especially the failure of them) will likely lead for previous mail to be deliver into spam rather than content on email server which has only SpamAssassin?  
+<strong>iv.</strong> Why it is so important pay attention to exact URLs and <strong>why can we trust</strong> the URLs in the first hand? Only a short explanation about the trust is required.
 
-<strong>viii.</strong> If you attempt to spoof some of these domain owners, in which cases the messages are not delivered regardless of the content? (Who has configured their servers correctly (also with DKIM and SPF) with `reject` policy?)  
+**Answer:** 
+* We can trust URLs in the first place thanks to a system called the `Domain Name System (DNS)`. It acts like a phonebook for URL links which allows users to concretely verify the legitimacy of those domains themselves.
+* However, this is also why it's important to double check the URL links, because typos can happen and usually it only takes one tiny mistake to send the user to a completely different website, and often times this is where the attackers have sprung up the trap waiting for their prey.
+* A good example of this is `spanki.fi`, a non-registered domain, versus `spankki.fi`, a registered and verifiable one.
+
+<strong>v.</strong> Look for the sender from the .eml message. How the message has been sent? You should be able to identify the service.
+
+**Answer:** 
+* Sender: `emkei.cz (89.187.129.24)`
+* The message was sent through `emkei.cz`, a popular fake emailer website that allows anyone to send emails without authentication. 
+
+<strong>vi.</strong> What headers are telling about DMARC, DKIM and SPF checks?
+
+**Answer:** 
+```
+Authentication-Results: spf=none (sender IP is 89.187.129.24)
+    smtp.mailfrom=spanki.fi; dkim=none (message not signed)
+    header.d=none;dmarc=none action=none header.from=spanki.fi;compauth=fail
+    reason=001
+Received-SPF: None (protection.outlook.com: spanki.fi does not designate
+    permitted sender hosts)
+```
+* SPF: `none` - no SPF record
+* DKIM: `none` - the message was not signed
+* DMARC: `none` - the domain `spanki.fi` has no DMARC policy configured
+
+<strong>vii.</strong> Now, do you think that these checks (especially the failure of them) will likely lead for previous mail to be deliver into spam rather than content on email server which has only SpamAssassin?
+
+**Answer:** Short answer is `no`.
+* A server running only `SpamAssassin` without DMARC/DKIM/SPF enforcement (as is the case with `UrgentActionRequiredVerifyYourAccountNow.eml`) would rely solely on **content analysis**. `SpamAssassin` would give it a low spam score (`1.8` in this case) and would **not** mark it as spam, therefore this email would likely end up in the inbox.
+* On the contrary, a server with those enforcements would automatically **reject** the email before `SpamAssassin` even sees it, thanks to DMARC's `reject` policy. In summary, DMARC/DKIM/SPF is much more effective against attacks like the ones generated from `emkei.cz`.
+
+<strong>viii.</strong> If you attempt to spoof some of these domain owners, in which cases the messages are not delivered regardless of the content? (Who has configured their servers correctly (also with DKIM and SPF) with `reject` policy?)
+
+**Answer:** Let's take a previously mentioned domain as an example: `s-pankki.fi`.
+
+* Running `drill -t spankki.fi TXT` to check SPF record yields the result of `"v=spf1 -all"`. The important part is at the end, where it says `-all`, which means a **strict reject**.
+* Running `drill -t _dmarc.spankki.fi TXT` to check DMARC yields `"v=DMARC1; p=reject; ..."`. Again, what decides about spoofed emails is the `p=reject` part, and in this case, they are **completely blocked**.
+* To verify DKIM, we first run the `drill s-pankki.fi MX` command. This gives us the mail provider of `Outlook` (from `spankki-fi0c.mail.protection.outlook.com`), which is an indicator that we should try `selector1` in the next command. Try `drill selector1._domainkey.s-pankki.fi TXT` and we then get `"v=DKIM1; ...`, confirming that this is indeed a **valid** DKIM record.
+* These 3 criteria together is what blocks spoofed emails regardless of content, as in the case of verifiable and trustworthy websites like `s-pankki.fi`.
 
 </details>
 
