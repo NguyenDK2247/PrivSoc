@@ -349,6 +349,16 @@ if __name__ == '__main__':
 
 > Return the code and the screenshot of your Netflix phishing site and from the terminal, when it logs the user data after user submits it. You don't need to modify `index.html` in any way. What was the purpose of `301` response code and location header?
 
+**Answer:**
+* POST code:
+![](/5.Social_engineering_I/screenshots/POST%20code.png)
+* Netflix phishing site (using GitHub overlay because Netflix itself doesn't work anymore):
+![](/5.Social_engineering_I/screenshots/phishing%20website.png)
+* Terminal upon user submission:
+![](/5.Social_engineering_I/screenshots/terminal%20code%20after%20user%20submission.png)
+* The `301` here means **Moved Permanently**. what happens here is that, the user receives an email "warning" them about a potential danger in your account (going back to `UrgentActionRequiredVerifyYourAccountNow.eml`) and sends a link for you to try and address the issue there. Unbeknownst to you that it's actually a phishing link, you click on it, which just so happens to be a complete pixel to pixel replica of the actual website, making you believe that you are in the legitimate website itself, when in reality, you are not. You fill in your credentials for fixating the issue, and after submitting those credentials away, and **here is the important part**, the `301` kicks in and **redirects** the user back towards the legitimate domain. On the surface, everything looks completely normal here, but in reality, the attacker has just got hold of your details (see the terminal upon user submission screenshot for reference) with fully visible email and password. Crucially, they can attempt to infiltrate a lot of your account details on other websites now, because passwords are usually reused from one website to another.
+* This exploits just how easy it is to clone a website, create a phishing link that looks completely ordinary, and steal credentials from an user. This is also why you should always **double-check the URL** before submitting any sensitive information, and **enable two-factor authentication (2FA)** so passwords aren't the only line of defense for your account(s).
+
 </details>
 
 ---
